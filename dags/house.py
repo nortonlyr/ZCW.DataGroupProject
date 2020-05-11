@@ -5,6 +5,9 @@ from airflow.operators.python_operator import PythonOperator
 from sqlalchemy import create_engine
 import pandas as pd
 
+mysqluser = os.environ.get('mysql_user')
+mysqlkey = os.environ.get('mysql_key')
+
 default_args = {
     'owner': 'maleda',
     'depends_on_past': False,
@@ -26,7 +29,7 @@ dag = DAG(
 
 def house_19128_sql():
     df = pd.read_csv('/Users/mtessema/Desktop/house/19128.csv', encoding='ISO-8859-1')
-    engine = create_engine('mysql+pymysql://root:zipcoder@localhost:3306/project_data')
+    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/project_data")
     df.to_sql(name='house_19128', con=engine, index=False, if_exists='replace')
 
 
@@ -40,7 +43,7 @@ t1 = PythonOperator(
 
 def house_19129_sql():
     df = pd.read_csv('/Users/mtessema/Desktop/house/19129.csv', encoding='ISO-8859-1')
-    engine = create_engine('mysql+pymysql://root:zipcoder@localhost:3306/project_data')
+    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/project_data")
     df.to_sql(name='house_19129', con=engine, index=False, if_exists='replace')
 
 
@@ -54,7 +57,7 @@ t2 = PythonOperator(
 
 def house_19130_sql():
     df = pd.read_csv('/Users/mtessema/Desktop/house/19130.csv', encoding='ISO-8859-1')
-    engine = create_engine('mysql+pymysql://root:zipcoder@localhost:3306/project_data')
+    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/project_data")
     df.to_sql(name='house_19130', con=engine, index=False, if_exists='replace')
 
 
@@ -68,7 +71,7 @@ t3 = PythonOperator(
 
 def house_19131_sql():
     df = pd.read_csv('/Users/mtessema/Desktop/house/19131.csv', encoding='ISO-8859-1')
-    engine = create_engine('mysql+pymysql://root:zipcoder@localhost:3306/project_data')
+    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/project_data")
     df.to_sql(name='house_19131', con=engine, index=False, if_exists='replace')
 
 
@@ -82,7 +85,7 @@ t4 = PythonOperator(
 
 def house_19132_sql():
     df = pd.read_csv('/Users/mtessema/Desktop/house/19132.csv', encoding='ISO-8859-1')
-    engine = create_engine('mysql+pymysql://root:zipcoder@localhost:3306/project_data')
+    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/project_data")
     df.to_sql(name='house_19132', con=engine, index=False, if_exists='replace')
 
 
@@ -96,7 +99,7 @@ t5 = PythonOperator(
 
 def house_19133_sql():
     df = pd.read_csv('/Users/mtessema/Desktop/house/19133.csv', encoding='ISO-8859-1')
-    engine = create_engine('mysql+pymysql://root:zipcoder@localhost:3306/project_data')
+    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/project_data")
     df.to_sql(name='house_19133', con=engine, index=False, if_exists='replace')
 
 
@@ -110,7 +113,7 @@ t6 = PythonOperator(
 
 def house_19134_sql():
     df = pd.read_csv('/Users/mtessema/Desktop/house/19134.csv', encoding='ISO-8859-1')
-    engine = create_engine('mysql+pymysql://root:zipcoder@localhost:3306/project_data')
+    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/project_data")
     df.to_sql(name='house_19134', con=engine, index=False, if_exists='replace')
 
 
@@ -124,7 +127,7 @@ t7 = PythonOperator(
 
 def house_19135_sql():
     df = pd.read_csv('/Users/mtessema/Desktop/house/19135.csv', encoding='ISO-8859-1')
-    engine = create_engine('mysql+pymysql://root:zipcoder@localhost:3306/project_data')
+    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/project_data")
     df.to_sql(name='house_19135', con=engine, index=False, if_exists='replace')
 
 
@@ -138,7 +141,7 @@ t8 = PythonOperator(
 
 def house_19136_sql():
     df = pd.read_csv('/Users/mtessema/Desktop/house/19136.csv', encoding='ISO-8859-1')
-    engine = create_engine('mysql+pymysql://root:zipcoder@localhost:3306/project_data')
+    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/project_data")
     df.to_sql(name='house_19136', con=engine, index=False, if_exists='replace')
 
 
@@ -152,7 +155,7 @@ t9 = PythonOperator(
 
 def house_19137_sql():
     df = pd.read_csv('/Users/mtessema/Desktop/house/19137.csv', encoding='ISO-8859-1')
-    engine = create_engine('mysql+pymysql://root:zipcoder@localhost:3306/project_data')
+    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/project_data")
     df.to_sql(name='house_19137', con=engine, index=False, if_exists='replace')
 
 
@@ -166,7 +169,7 @@ t10 = PythonOperator(
 
 def house_19138_sql():
     df = pd.read_csv('/Users/mtessema/Desktop/house/19138.csv', encoding='ISO-8859-1')
-    engine = create_engine('mysql+pymysql://root:zipcoder@localhost:3306/project_data')
+    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/project_data")
     df.to_sql(name='house_19138', con=engine, index=False, if_exists='replace')
 
 
@@ -180,7 +183,7 @@ t11 = PythonOperator(
 
 def house_19139_sql():
     df = pd.read_csv('/Users/mtessema/Desktop/house/19139.csv', encoding='ISO-8859-1')
-    engine = create_engine('mysql+pymysql://root:zipcoder@localhost:3306/project_data')
+    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/project_data")
     df.to_sql(name='house_19139', con=engine, index=False, if_exists='replace')
 
 
@@ -194,7 +197,7 @@ t12 = PythonOperator(
 
 def house_19140_sql():
     df = pd.read_csv('/Users/mtessema/Desktop/house/19140.csv', encoding='ISO-8859-1')
-    engine = create_engine('mysql+pymysql://root:zipcoder@localhost:3306/project_data')
+    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/project_data")
     df.to_sql(name='house_19140', con=engine, index=False, if_exists='replace')
 
 
@@ -208,7 +211,7 @@ t13 = PythonOperator(
 
 def house_19141_sql():
     df = pd.read_csv('/Users/mtessema/Desktop/house/19141.csv', encoding='ISO-8859-1')
-    engine = create_engine('mysql+pymysql://root:zipcoder@localhost:3306/project_data')
+    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/project_data")
     df.to_sql(name='house_19141', con=engine, index=False, if_exists='replace')
 
 
@@ -222,7 +225,7 @@ t14 = PythonOperator(
 
 def house_19142_sql():
     df = pd.read_csv('/Users/mtessema/Desktop/house/19142.csv', encoding='ISO-8859-1')
-    engine = create_engine('mysql+pymysql://root:zipcoder@localhost:3306/project_data')
+    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/project_data")
     df.to_sql(name='house_19142', con=engine, index=False, if_exists='replace')
 
 
@@ -236,7 +239,7 @@ t15 = PythonOperator(
 
 def house_19143_sql():
     df = pd.read_csv('/Users/mtessema/Desktop/house/19143.csv', encoding='ISO-8859-1')
-    engine = create_engine('mysql+pymysql://root:zipcoder@localhost:3306/project_data')
+    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/project_data")
     df.to_sql(name='house_19143', con=engine, index=False, if_exists='replace')
 
 
@@ -250,7 +253,7 @@ t16 = PythonOperator(
 
 def house_19144_sql():
     df = pd.read_csv('/Users/mtessema/Desktop/house/19144.csv', encoding='ISO-8859-1')
-    engine = create_engine('mysql+pymysql://root:zipcoder@localhost:3306/project_data')
+    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/project_data")
     df.to_sql(name='house_19144', con=engine, index=False, if_exists='replace')
 
 
@@ -264,7 +267,7 @@ t17 = PythonOperator(
 
 def house_19145_sql():
     df = pd.read_csv('/Users/mtessema/Desktop/house/19145.csv', encoding='ISO-8859-1')
-    engine = create_engine('mysql+pymysql://root:zipcoder@localhost:3306/project_data')
+    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/project_data")
     df.to_sql(name='house_19145', con=engine, index=False, if_exists='replace')
 
 
@@ -278,7 +281,7 @@ t18 = PythonOperator(
 
 def house_19146_sql():
     df = pd.read_csv('/Users/mtessema/Desktop/house/19146.csv', encoding='ISO-8859-1')
-    engine = create_engine('mysql+pymysql://root:zipcoder@localhost:3306/project_data')
+    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/project_data")
     df.to_sql(name='house_19146', con=engine, index=False, if_exists='replace')
 
 
@@ -292,7 +295,7 @@ t18 = PythonOperator(
 
 def house_19147_sql():
     df = pd.read_csv('/Users/mtessema/Desktop/house/19147.csv', encoding='ISO-8859-1')
-    engine = create_engine('mysql+pymysql://root:zipcoder@localhost:3306/project_data')
+    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/project_data")
     df.to_sql(name='house_19147', con=engine, index=False, if_exists='replace')
 
 
@@ -306,7 +309,7 @@ t19 = PythonOperator(
 
 def house_19148_sql():
     df = pd.read_csv('/Users/mtessema/Desktop/house/19148.csv', encoding='ISO-8859-1')
-    engine = create_engine('mysql+pymysql://root:zipcoder@localhost:3306/project_data')
+    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/project_data")
     df.to_sql(name='house_19148', con=engine, index=False, if_exists='replace')
 
 
@@ -320,7 +323,7 @@ t20 = PythonOperator(
 
 def house_19149_sql():
     df = pd.read_csv('/Users/mtessema/Desktop/house/19149.csv', encoding='ISO-8859-1')
-    engine = create_engine('mysql+pymysql://root:zipcoder@localhost:3306/project_data')
+    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/project_data")
     df.to_sql(name='house_19149', con=engine, index=False, if_exists='replace')
 
 
@@ -334,7 +337,7 @@ t21 = PythonOperator(
 
 def house_19150_sql():
     df = pd.read_csv('/Users/mtessema/Desktop/house/19150.csv', encoding='ISO-8859-1')
-    engine = create_engine('mysql+pymysql://root:zipcoder@localhost:3306/project_data')
+    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/project_data")
     df.to_sql(name='house_19150', con=engine, index=False, if_exists='replace')
 
 
@@ -348,7 +351,7 @@ t22 = PythonOperator(
 
 def house_19151_sql():
     df = pd.read_csv('/Users/mtessema/Desktop/house/19151.csv', encoding='ISO-8859-1')
-    engine = create_engine('mysql+pymysql://root:zipcoder@localhost:3306/project_data')
+    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/project_data")
     df.to_sql(name='house_19151', con=engine, index=False, if_exists='replace')
 
 
@@ -362,7 +365,7 @@ t23 = PythonOperator(
 
 def house_19152_sql():
     df = pd.read_csv('/Users/mtessema/Desktop/house/19152.csv', encoding='ISO-8859-1')
-    engine = create_engine('mysql+pymysql://root:zipcoder@localhost:3306/project_data')
+    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/project_data")
     df.to_sql(name='house_19152', con=engine, index=False, if_exists='replace')
 
 
@@ -376,7 +379,7 @@ t24 = PythonOperator(
 
 def house_19153_sql():
     df = pd.read_csv('/Users/mtessema/Desktop/house/19153.csv', encoding='ISO-8859-1')
-    engine = create_engine('mysql+pymysql://root:zipcoder@localhost:3306/project_data')
+    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/project_data")
     df.to_sql(name='house_19153', con=engine, index=False, if_exists='replace')
 
 
@@ -390,7 +393,7 @@ t25 = PythonOperator(
 
 def house_19154_sql():
     df = pd.read_csv('/Users/mtessema/Desktop/house/19154.csv', encoding='ISO-8859-1')
-    engine = create_engine('mysql+pymysql://root:zipcoder@localhost:3306/project_data')
+    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/project_data")
     df.to_sql(name='house_19154', con=engine, index=False, if_exists='replace')
 
 
@@ -421,7 +424,7 @@ def all_atonce():
     big_frame = pd.DataFrame(comb_np_array)
 
     big_frame.columns = ["ZIP Code","Year","Month", "SalesCount", "AvgSalesPrice"]
-    engine = create_engine('mysql+pymysql://root:zipcoder@localhost:3306/project_data')
+    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/project_data")
     big_frame.to_sql(name='house_pa', con=engine, index=False, if_exists='replace')
 
 t63 = PythonOperator(
