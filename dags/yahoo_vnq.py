@@ -48,7 +48,7 @@ t1 = PythonOperator(
 def vnq_to_sql():
     import pandas as pd
     df = pd.read_csv('/Users/mtessema/Desktop/VNQ/vnq_2015_present.csv', encoding='ISO-8859-1')
-    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/stock_data")
+    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/project_data")
     df.to_sql(name='vnq_5y', con=engine, index=False, if_exists='replace')
 
 
@@ -61,7 +61,7 @@ t2 = PythonOperator(
 
 
 def change_data_type_vnq_5y():
-    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/stock_data")
+    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/project_data")
     conn = engine.connect()
     conn.execute("ALTER TABLE vnq_5y CHANGE Date Date DATE NULL;")
 
@@ -78,7 +78,7 @@ def chart_vnq_5y():
     import plotly.graph_objects as go
     import pandas as pd
 
-    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/stock_data")
+    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/project_data")
     dt5_df = pd.read_sql('select * from vnq_5y', engine)
     fig = go.Figure(data=[go.Candlestick(x=dt5_df['Date'],
                                          open=dt5_df['Open'],
@@ -99,7 +99,7 @@ t4 = PythonOperator(
 
 
 def create_table_2015y():
-    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/stock_data")
+    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/project_data")
     conn = engine.connect()
     conn.execute("""
                 drop table if exists y2015;
@@ -123,7 +123,7 @@ def chart_table_2015y():
     import plotly.graph_objects as go
     import pandas as pd
 
-    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/stock_data")
+    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/project_data")
     dt2015_df = pd.read_sql('select * from y2015', engine)
     fig = go.Figure(data=[go.Candlestick(x=dt2015_df['Date'],
                                          open=dt2015_df['Open'],
@@ -143,7 +143,7 @@ t6 = PythonOperator(
 
 
 def create_table_2016y():
-    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/stock_data")
+    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/project_data")
     conn = engine.connect()
     conn.execute("""
                 drop table if exists y2016;
@@ -168,7 +168,7 @@ def chart_table_2016y():
     import plotly.graph_objects as go
     import pandas as pd
 
-    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/stock_data")
+    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/project_data")
     dt2016_df = pd.read_sql('select * from y2016', engine)
     fig = go.Figure(data=[go.Candlestick(x=dt2016_df['Date'],
                                          open=dt2016_df['Open'],
@@ -187,7 +187,7 @@ t8 = PythonOperator(
 
 
 def create_table_2017y():
-    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/stock_data")
+    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/project_data")
     conn = engine.connect()
     conn.execute("""
                 drop table if exists y2017;
@@ -212,7 +212,7 @@ def chart_table_2017y():
     import plotly.graph_objects as go
     import pandas as pd
 
-    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/stock_data")
+    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/project_data")
     dt2017_df = pd.read_sql('select * from y2017', engine)
     fig = go.Figure(data=[go.Candlestick(x=dt2017_df['Date'],
                                          open=dt2017_df['Open'],
@@ -232,7 +232,7 @@ t10 = PythonOperator(
 
 
 def create_table_2018y():
-    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/stock_data")
+    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/project_data")
     conn = engine.connect()
     conn.execute("""
                 drop table if exists y2018;
@@ -257,7 +257,7 @@ def chart_table_2018y():
     import plotly.graph_objects as go
     import pandas as pd
 
-    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/stock_data")
+    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/project_data")
     dt2018_df = pd.read_sql('select * from y2018', engine)
     fig = go.Figure(data=[go.Candlestick(x=dt2018_df['Date'],
                                          open=dt2018_df['Open'],
@@ -276,7 +276,7 @@ t12 = PythonOperator(
 
 
 def create_table_2019y():
-    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/stock_data")
+    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/project_data")
     conn = engine.connect()
     conn.execute("""
                 drop table if exists y2019;"""
@@ -301,7 +301,7 @@ def chart_table_2019y():
     import plotly.graph_objects as go
     import pandas as pd
 
-    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/stock_data")
+    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/project_data")
     dt2019_df = pd.read_sql('select * from y2019', engine)
     fig = go.Figure(data=[go.Candlestick(x=dt2019_df['Date'],
                                          open=dt2019_df['Open'],
@@ -321,7 +321,7 @@ t14 = PythonOperator(
 
 
 def create_table_2020y():
-    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/stock_data")
+    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/project_data")
     conn = engine.connect()
     conn.execute("""
                 drop table if exists y2020 ;"""
@@ -346,7 +346,7 @@ def chart_table_2020y():
     import plotly.graph_objects as go
     import pandas as pd
 
-    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/stock_data")
+    engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/project_data")
     dt2020_df = pd.read_sql('select * from y2020', engine)
     fig = go.Figure(data=[go.Candlestick(x=dt2020_df['Date'],
                                          open=dt2020_df['Open'],
