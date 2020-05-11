@@ -4,6 +4,7 @@ from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
 from sqlalchemy import create_engine
 import pandas as pd
+import os
 
 mysqluser = os.environ.get('mysql_user')
 mysqlkey = os.environ.get('mysql_key')
