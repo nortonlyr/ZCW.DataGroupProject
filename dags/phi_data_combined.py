@@ -96,10 +96,14 @@ t1c = PythonOperator(
 )
 
 ###############################################
+<<<<<<< HEAD
 # t2: Philly Police Departments
 
 path_phi_pd = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data/phi_police_departments.csv')
 path_etl_phi_pd = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data/phi_police_departments_2.csv')
+=======
+#t2: Philly Police Department Stations
+>>>>>>> e6a969756930e06e303c550b302e5f4f675e1743
 
 
 def get_phi_pd():
@@ -113,7 +117,7 @@ def get_phi_pd():
 
 
 t2a = PythonOperator(
-    task_id='get_phi_police_departments',
+    task_id='get_phi_police_dept_stations',
     python_callable=get_phi_pd,
     provide_context=False,
     dag=dag,
@@ -132,7 +136,7 @@ def phi_pd_etl():
 
 
 t2b = PythonOperator(
-    task_id='phi_police_departments_etl',
+    task_id='phi_police_dept_stations_etl',
     python_callable=phi_pd_etl,
     provide_context=False,
     dag=dag,
@@ -146,9 +150,15 @@ def phi_pd_csv_to_mysql():
 
 
 t2c = PythonOperator(
+<<<<<<< HEAD
     task_id='phi_police_departments_csv_to_mysql',
     python_callable=phi_pd_csv_to_mysql,
     dag=dag,
+=======
+        task_id='phi_police_dept_stations_csv_to_mysql',
+        python_callable=phi_pd_csv_to_mysql,
+        dag=dag,
+>>>>>>> e6a969756930e06e303c550b302e5f4f675e1743
 )
 
 ###############################################
@@ -239,7 +249,11 @@ def phi_schl_etl():
     phi_schools_df = pd.read_csv(path_phi_schl)
 
     phi_schools_df_2 = phi_schools_df.drop(columns=['AUN', 'SCHOOL_NUM', 'LOCATION_ID', 'SCHOOL_NAME_LABEL',
+<<<<<<< HEAD
                                                     'PHONE_NUMBER', 'ACTIVE', 'ENROLLMENT'])
+=======
+                                                     'PHONE_NUMBER', 'ACTIVE', 'ENROLLMENT'])
+>>>>>>> e6a969756930e06e303c550b302e5f4f675e1743
     phi_schools_df_2 = phi_schools_df_2.set_index('OBJECTID')
     phi_schools_df_2.to_csv(path_etl_phi_schl)
 
@@ -323,10 +337,14 @@ t5c = PythonOperator(
 )
 
 ###############################################
+<<<<<<< HEAD
 # t6: Philly Fire Departments
 
 path_phi_fd = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data/phi_fire_departments.csv')
 path_etl_phi_fd = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data/phi_fire_departments_2.csv')
+=======
+#t6: Philly Fire Department Stations
+>>>>>>> e6a969756930e06e303c550b302e5f4f675e1743
 
 
 def get_phi_fd():
@@ -340,7 +358,7 @@ def get_phi_fd():
 
 
 t6a = PythonOperator(
-    task_id='get_phi_fire_departments',
+    task_id='get_phi_fire_dept_stations',
     python_callable=get_phi_fd,
     provide_context=False,
     dag=dag,
@@ -360,7 +378,7 @@ def phi_fd_etl():
 
 
 t6b = PythonOperator(
-    task_id='phi_fire_departments_etl',
+    task_id='phi_fire_dept_stations_etl',
     python_callable=phi_fd_etl,
     provide_context=False,
     dag=dag,
@@ -612,9 +630,15 @@ t10b = PythonOperator(
 
 
 def phi_uc_csv_to_mysql():
+<<<<<<< HEAD
     conn = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/project_data")
     df = pd.read_csv(path_etl_phi_hc, delimiter=',')
     df.to_sql(name='universities_colleges', con=conn, index=False, if_exists='replace')
+=======
+    conn = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/data_group_project")
+    df = pd.read_csv(path_etl_phi_uc, delimiter=',')
+    df.to_sql(name='universities_colleges', con=conn, schema='data_group_project', if_exists='replace')
+>>>>>>> e6a969756930e06e303c550b302e5f4f675e1743
 
 
 t10c = PythonOperator(
