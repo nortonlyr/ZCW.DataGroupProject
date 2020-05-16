@@ -1,0 +1,37 @@
+OBJECTID,HOSPITAL_NAME,STREET_ADDRESS,CITY,ZIP_CODE,HOSPITAL_TYPE
+1,Aria Health- Frankford Campus,4900 Frankford Avenue,Philadelphia,19124,General medical
+2,Aria Health- Torresdale Campus,10800 Knights Road,Philadelphia,19114,General medical
+3,Belmont Center for Comprehensive Treatment ,4200 Monument Road,Philadelphia,19131,Behavioral health
+4,Chestnut Hill Hospital,8835 Germantown Avenue,Philadelphia,19118,General medical
+5,The Children's Hospital of Philadelphia,34th Street and Civic Center Boulevard      ,Philadelphia,19104,General medical
+6,Einstein Medical Center - Philadelphia,5501 Old York Rd,Philadelphia,19141,General medical
+7,Fox Chase Cancer Center,333 Cottman Avenue,Philadelphia,19111,General medical
+8,Girard Medical Center,8th St. & Girard Avenue,Philadelphia,19122,Long term care
+9,Hospital of the University of Pennsylvania,3400 Spruce Street,Philadelphia,19104,General medical
+10,Jeanes Hospital,7600 Central Avenue,Philadelphia ,19111,General medical
+11,Kindred Hospital Philadelphia ,6129 Palmetto St.,Philadelphia,19111,Long term care
+12,Kindred Hospital South Philadelphia ,1930 S. Broad Street,Philadelphia,19145,Long term care
+13,Magee Rehabilitation Hospital ,1513 Race Street,Philadelphia,19102,Rehabilitation
+14,Mercy Philadelphia Hospital,501 South 54th Street,Philadelphia,19143,General medical
+15,Thomas Jefferson University Hospitals Methodist,2301 South Broad St.,Philadelphia,19148,General medical
+16,Nazareth Hospital,2601 Holme Avenue,Philadelphia,19152,General medical
+17,Pennsylvania Hospital,800 Spruce Street,Philadelphia,19107,General medical
+18,Penn Presbyterian Medical Center, 51 North 39th street,Philadelphia,19104,General medical
+19,Roxborough Memorial Hospital,5800 Ridge Avenue,Philadelphia,19128,General medical
+20,St. Christopher's Hospital for Children,3601 A Street,Philadelphia,19134,General medical
+21,St.Joseph's Hospital (dba North Phila Health System),16th and Girard Ave ,Philadelphia,19130,General medical
+22,Temple University Hospital - Main Campus,3401 N. Broad Street,Philadelphia,19140,General medical
+23,Temple Episcopal,100 E Lehigh Ave,Philadelphia,19125,Behavioral health
+24,Thomas Jefferson University Hospital,111 South 11th Street  ,Philadelphia,19107,General medical
+25,Philadelphia VA Medical Center,3900 Woodland Ave,Philadelphia,19104,General medical
+26,Angela Jane Pavilion Rehabilitation Hospital,8410 Roosevelt Boulevard,Philadelphia,19152,Rehabilitation
+27,Fairmount Behavioral Health Systems,561 Fairthorne Avenue,Philadelphia,19128,Behavioral health
+28,Friends Hospital,4641 Roosevelt Boulevard,Philadelphia,19124,Behavioral health
+29,Germantown Community Health Center,1 Penn Boulevard,Philadelphia,19144,Behavioral health
+30,Good Shepherd Penn Partners,1800 Lombard Street,Philadelphia,19146,Rehabilitation
+31,Kensington Hospital,136 West Diamond Street,Philadelphia,19122,Behavioral health
+32,Kirkbride Center,111 North 49th Street,Philadelphia,19139,Behavioral health
+33,Moss Rehabilitation Hospital,1200 W Tabor Road,Philadelphia,19141,Rehabilitation
+34,Saint Agnes Long Term Care Hospital,1900 South Broad Street,Philadelphia,19145,Long term care
+35,Shriners Hospitals For Children ,3551 North Broad Street,Philadelphia,19140,General medical
+36,Wills Eye Hospital,840 Walnut Street,Philadelphia,19107,General medical
