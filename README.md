@@ -1,6 +1,6 @@
 ### ZCW.DataGroupProject
 
-![description_if_image_fails_to_load](https://github.com/nortonlyr/ZCW.DataGroupProject/blob/master/final_project_050620.jpg)
+![description_if_image_fails_to_load](https://github.com/nortonlyr/ZCW.DataGroupProject/blob/master/DataGroupProject.jpg)
 
 NON-TRADITIONAL HOUSING PRICE PREDICTOR
 -------------------
