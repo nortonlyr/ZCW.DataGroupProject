@@ -5,12 +5,13 @@
 NON-TRADITIONAL HOUSING PRICE PREDICTOR
 -------------------
 
-This repo contains the code for a collaborative project between 3- Zip Code Wilmington students, using both static and streaming data to find out what are the relevant factors that are driving the Philadelphia City housing market. And can those factors be used to predict sound real estate investments. 
+This repo contains the code for a collaborative project between 3- Zip Code Wilmington students, using both static and API data to find out what are the relevant factors that are driving the Philadelphia City housing market. And can those factors be used to predict sound real estate investments. 
 
 THE QUESTION: 
 -------------------
 
 What are the factors that currently driving housing prices in Philadelphia?
+
 
 | TASK | README |
 | ------ | ------ |
