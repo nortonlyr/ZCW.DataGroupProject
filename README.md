@@ -13,12 +13,12 @@ THE QUESTION:
 What are the factors that currently driving housing prices in Philadelphia?
 
 
-| TASK | README |
-| ------ | ------ |
-| DATA SOURCE |[plugins/data_source_README.md][PlDb] |
-| EXTRACTION |[plugins/extraction_README.md][PlDb] |
-| TRANSFORMATION (CLEANING, STRUCTURE, SUMMARY)| [plugins/transformation_README.md][PlGh] |
-| ANALYTICS | [plugins/visualization_README.md][PlGd] |
-| MACHINE LEARNING | [plugins/machinelearning_README.md][PlOd] |
+| TASK | 
+| ------ | 
+| [DATA SOURCE](plugins/data_source_README.md)|
+| [EXTRACTION](plugins/extraction_README.md)|
+| [TRANSFORMATION](plugins/transformation_README.md)|
+| [ANALYTICS](plugins/visualization_README.md)|
+| [MACHINE LEARNING](plugins/machinelearning_README.md)|
 
 
