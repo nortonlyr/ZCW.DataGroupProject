@@ -4,9 +4,9 @@ We set out to find housing data that would help solve our inquiry. There were ce
 
 The real estate industry is big. According to federal statistics, the industry contributed more than $2.7 trillion to the U.S. economy in 2018 or about 13 percent of GDP. It employed more than 2 million people and generated more $10 billion in corporate profits.
 
-Although there are numerous APIs that deal wiht housing data, a majority of it comes at a prirce. 
+Although there are numerous APIs that deal wiht housing data, a majority of these APIs require a payment. 
 
-The solution for reliable data came via [melissa.com](https://www.melissa.com).
+The solution for reliable and free data came via [melissa.com](https://www.melissa.com).
 
 Melissa helps companies to harness Big Data, legacy data, and people data (names, addresses, phone numbers, and emails).
 
