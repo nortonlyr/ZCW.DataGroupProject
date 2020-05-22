@@ -19,3 +19,8 @@ Housing Prediction
 
 TOOLS: 
 - JP NOTEBOOK, PLOTLY DASH
+
+### HOUSING PREDICTION 
+Jupyter notebook will be used to load the data with applying SQL query for data analysis and pridction model building. The data visualization will be also performed with matplotlib and other data visulization tools. 
+
+ Also, we will update some daily housing information in the Philly area, to allow us to have a parallel view of the price prediction study. A streaming API data will be added.
