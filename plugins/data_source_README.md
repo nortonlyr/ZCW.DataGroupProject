@@ -1,4 +1,4 @@
-### DATA SOURCE 
+### DATA SOURCE & EXTRACTION 
 
 We set out to find housing data that would help solve our inquiry. There were certain aspects of the the real estate of which we were uninformed. 
 
