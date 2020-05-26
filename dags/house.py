@@ -1,10 +1,12 @@
 from datetime import timedelta, datetime
-import psycopg2
 from airflow import DAG
+from airflow.operators.dummy_operator import DummyOperator
 from airflow.operators.python_operator import PythonOperator
 from sqlalchemy import create_engine
-import pandas as pd
 import os
+import glob
+import pandas as pd
+import numpy as np
 
 mysqluser = os.environ.get('mysql_user')
 mysqlkey = os.environ.get('mysql_key')
@@ -25,6 +27,12 @@ dag = DAG(
     default_args=default_args,
     description='create and insert',
     schedule_interval=timedelta(days=1),
+)
+
+t0 = DummyOperator(
+    task_id='Melisa_house_data_start',
+    retries=1,
+    dag=dag
 )
 
 
@@ -109,8 +117,9 @@ t6 = PythonOperator(
     provide_context=False,
     python_callable=house_19133_sql,
     dag=dag,
-  
+
 )
+
 
 def house_19134_sql():
     df = pd.read_csv('/Users/mtessema/Desktop/house/19134.csv', encoding='ISO-8859-1')
@@ -286,7 +295,7 @@ def house_19146_sql():
     df.to_sql(name='house_19146', con=engine, index=False, if_exists='replace')
 
 
-t18 = PythonOperator(
+t19 = PythonOperator(
     task_id='house_19146_sql',
     provide_context=False,
     python_callable=house_19146_sql,
@@ -300,7 +309,7 @@ def house_19147_sql():
     df.to_sql(name='house_19147', con=engine, index=False, if_exists='replace')
 
 
-t19 = PythonOperator(
+t20 = PythonOperator(
     task_id='house_19147_sql',
     provide_context=False,
     python_callable=house_19147_sql,
@@ -314,7 +323,7 @@ def house_19148_sql():
     df.to_sql(name='house_19148', con=engine, index=False, if_exists='replace')
 
 
-t20 = PythonOperator(
+t21 = PythonOperator(
     task_id='house_19148_sql',
     provide_context=False,
     python_callable=house_19148_sql,
@@ -328,7 +337,7 @@ def house_19149_sql():
     df.to_sql(name='house_19149', con=engine, index=False, if_exists='replace')
 
 
-t21 = PythonOperator(
+t22 = PythonOperator(
     task_id='house_19149_sql',
     provide_context=False,
     python_callable=house_19149_sql,
@@ -342,7 +351,7 @@ def house_19150_sql():
     df.to_sql(name='house_19150', con=engine, index=False, if_exists='replace')
 
 
-t22 = PythonOperator(
+t23 = PythonOperator(
     task_id='house_19150_sql',
     provide_context=False,
     python_callable=house_19150_sql,
@@ -356,7 +365,7 @@ def house_19151_sql():
     df.to_sql(name='house_19151', con=engine, index=False, if_exists='replace')
 
 
-t23 = PythonOperator(
+t24 = PythonOperator(
     task_id='house_19151_sql',
     provide_context=False,
     python_callable=house_19151_sql,
@@ -370,7 +379,7 @@ def house_19152_sql():
     df.to_sql(name='house_19152', con=engine, index=False, if_exists='replace')
 
 
-t24 = PythonOperator(
+t25 = PythonOperator(
     task_id='house_19152_sql',
     provide_context=False,
     python_callable=house_19152_sql,
@@ -384,7 +393,7 @@ def house_19153_sql():
     df.to_sql(name='house_19153', con=engine, index=False, if_exists='replace')
 
 
-t25 = PythonOperator(
+t26 = PythonOperator(
     task_id='house_19153_sql',
     provide_context=False,
     python_callable=house_19153_sql,
@@ -398,39 +407,69 @@ def house_19154_sql():
     df.to_sql(name='house_19154', con=engine, index=False, if_exists='replace')
 
 
-t62 = PythonOperator(
+t27 = PythonOperator(
     task_id='house_19154_sql',
     provide_context=False,
     python_callable=house_19154_sql,
     dag=dag,
 )
 
-import os
-import glob
-import pandas as pd
-import numpy as np
 
 def all_atonce():
-
     path = "/Users/mtessema/Desktop/house/"
-    allFiles = glob.glob(os.path.join(path,"*.csv"))
-
+    allFiles = glob.glob(os.path.join(path, "*.csv"))
 
     np_array_list = []
     for file_ in allFiles:
-        df = pd.read_csv(file_,index_col=None, header=0)
+        df = pd.read_csv(file_, index_col=None, header=0)
         np_array_list.append(df.as_matrix())
 
     comb_np_array = np.vstack(np_array_list)
     big_frame = pd.DataFrame(comb_np_array)
 
-    big_frame.columns = ["ZIP Code","Year","Month", "SalesCount", "AvgSalesPrice"]
+    big_frame.columns = ["ZIP Code", "Year", "Month", "SalesCount", "AvgSalesPrice"]
     engine = create_engine("mysql+pymysql://" + mysqluser + ":" + mysqlkey + "@localhost:3306/project_data")
     big_frame.to_sql(name='house_pa', con=engine, index=False, if_exists='replace')
 
-t63 = PythonOperator(
+
+t28 = PythonOperator(
     task_id='all_atonce',
     provide_context=False,
     python_callable=all_atonce,
     dag=dag,
 )
+
+t_z = DummyOperator(
+    task_id='Melisa_house_data_complete',
+    retries=1,
+    dag=dag
+)
+
+t0 >> t1 >> t_z
+t0 >> t2 >> t_z
+t0 >> t3 >> t_z
+t0 >> t4 >> t_z
+t0 >> t5 >> t_z
+t0 >> t6 >> t_z
+t0 >> t7 >> t_z
+t0 >> t8 >> t_z
+t0 >> t9 >> t_z
+t0 >> t10 >> t_z
+t0 >> t11 >> t_z
+t0 >> t12 >> t_z
+t0 >> t13 >> t_z
+t0 >> t14 >> t_z
+t0 >> t15 >> t_z
+t0 >> t16 >> t_z
+t0 >> t17 >> t_z
+t0 >> t18 >> t_z
+t0 >> t19 >> t_z
+t0 >> t20 >> t_z
+t0 >> t21 >> t_z
+t0 >> t22 >> t_z
+t0 >> t23 >> t_z
+t0 >> t24 >> t_z
+t0 >> t25 >> t_z
+t0 >> t26 >> t_z
+t0 >> t27 >> t_z
+t0 >> t28 >> t_z
