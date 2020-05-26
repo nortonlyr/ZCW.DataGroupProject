@@ -1,8 +1,8 @@
 from datetime import timedelta, datetime
 import os
-import matplotlib
 import yfinance as yf
 from airflow import DAG
+from airflow.operators.dummy_operator import DummyOperator
 from airflow.operators.python_operator import PythonOperator
 from sqlalchemy import create_engine, engine, table
 
@@ -25,6 +25,12 @@ dag = DAG(
     default_args=default_args,
     description='yahoo request VNQ',
     schedule_interval=timedelta(days=1),
+)
+
+t0 = DummyOperator(
+    task_id='yahoo_finance_start',
+    retries=1,
+    dag=dag
 )
 
 
@@ -363,7 +369,14 @@ t16 = PythonOperator(
     dag=dag,
 )
 
-t1 >> t2 >> t3 >> t4
+t_z = DummyOperator(
+    task_id='yahoo_finance_done',
+    retries=1,
+    dag=dag
+
+)
+
+t0 >> t1 >> t2 >> t3 >> t4
 t5.set_upstream(t3)
 t6.set_upstream(t5)
 t7.set_upstream(t3)
@@ -376,3 +389,10 @@ t13.set_upstream(t3)
 t14.set_upstream(t13)
 t15.set_upstream(t3)
 t16.set_upstream(t15)
+t_z.set_upstream(t16)
+t_z.set_upstream(t14)
+t_z.set_upstream(t12)
+t_z.set_upstream(t10)
+t_z.set_upstream(t8)
+t_z.set_upstream(t6)
+t_z.set_upstream(t4)
